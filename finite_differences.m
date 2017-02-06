@@ -15,7 +15,7 @@ Dt = input(prompt5);
 
 % initialize time array with t0 = 0 and increments of size Dt
 t0 = 0;
-t = [t0:Dt:tn]; 
+t = t0:Dt:tn; 
 n = length(t); 
 tau = (R1*R2*C) / (R1 + R2); % time constant
 
@@ -36,7 +36,6 @@ V1_FinDiff(1) = V1_0;
 % calculate the VC and V1 values using finite differences
 for i = 2:n
    VC_FinDiff(i) = (Dt*V)/(R1*C) + VC_FinDiff(i-1) * (1 - (Dt/tau));
-   disp(VC_FinDiff(i));
    V1_FinDiff(i) = V - VC_FinDiff(i);
 end
 
